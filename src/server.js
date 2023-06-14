@@ -3,11 +3,15 @@ const express = require("express");
 const app = express();
 const foodRouter=require('./routes/foodRoutes')
 const clothesRouter=require('./routes/clothesRoutes')
+const booksRouter=require('./routes/booksRoutes')
+const authorsRouter=require('./routes/authoursRoutes')
 const notFound = require("./handlers/404");
 const errorHandler = require("./handlers/500");
 app.use(express.json());
 app.use(foodRouter);
 app.use(clothesRouter);
+app.use(booksRouter)
+app.use(authorsRouter)
 
 app.get('/', welcomeHandler);
 function welcomeHandler(req, res) {
